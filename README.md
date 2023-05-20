@@ -1,6 +1,6 @@
 # pytest-regex
 
-## Use Python Standard Library Regular Expression to Specify Tests to Run
+## Use Python Standard Library Regular Expressions to Specify Tests to Run
 
 After installing locally with i.e., `python -m pip install .` you can
 compare it with more conventional test selection techniques as follows.
@@ -11,7 +11,7 @@ built-in `-k` flag:
 
 `python dev.py test -- -v -k "test_3d"`
 
-This runs a bunch of tests with string matches as you might expected:
+This runs a bunch of tests with string matches as you might expect:
 
 ```
 scipy/io/tests/test_idl.py::TestArrayDimensions::test_3d PASSED
@@ -42,3 +42,12 @@ scipy/optimize/_trustregion_constr/tests/test_qp_subproblem.py::TestModifiedDogl
 
 This does what we want, and is probably more concise than the `-k` alternative. In fact,
 I'm not entirely sure how one would do this with `-k` in its current form.
+
+## How it Works
+
+`pytest-regex` simply passes the Python regular expression through
+to the list of node ids, where a node id is structured as follows:
+
+`path/to/test_module.py::TestClass::test_name[parameter_value]`
+
+If the regex matches the node id, the test is retained and executed.
