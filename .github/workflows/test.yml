@@ -1,0 +1,44 @@
+name: test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - "*"
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        tox_env:
+          - "py39"
+          - "py310"
+          - "py311"
+        os: [ubuntu-latest, windows-latest]
+        include:
+          - tox_env: "py39"
+            python: "3.9"
+          - tox_env: "py310"
+            python: "3.10"
+          - tox_env: "py311"
+            python: "3.11"
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python }}
+    - name: Install tox
+      run: |
+        python -m pip install --upgrade pip
+        pip install tox
+    - name: Test
+      shell: bash
+      run: |
+        tox run -e ${{ matrix.tox_env }}
