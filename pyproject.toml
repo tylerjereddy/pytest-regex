@@ -1,0 +1,16 @@
+[build-system]
+requires = [
+  "setuptools",
+  "wheel",
+]
+
+[project]
+name = "pytest-regex"
+dynamic = ['version']
+authors = [
+  { name="Tyler Reddy", email="tyler.je.reddy@gmail.com" },
+]
+description = "Select pytest tests with regular expressions"
+
+[project.urls]
+"Homepage" = "https://github.com/tylerjereddy/pytest-regex"
