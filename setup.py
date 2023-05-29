@@ -20,7 +20,7 @@ setup(
     description='Select tests with Python regex',
     long_description=read('README.md'),
     py_modules=['pytest_regex'],
-    python_requires='>=3.9',
+    python_requires='>=3.8',
     install_requires=['pytest>=3.5.0'],
     classifiers=[
         'Development Status :: 4 - Beta',
@@ -28,6 +28,7 @@ setup(
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Testing',
         'Programming Language :: Python',
+        'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
         'Programming Language :: Python :: 3.11',
