@@ -10,7 +10,7 @@ def read(fname):
 
 setup(
     name='pytest-regex',
-    version='0.1.0',
+    version='0.2.0',
     author='Tyler Reddy',
     author_email='tyler.je.reddy@gmail.com',
     maintainer='Tyler Reddy',
